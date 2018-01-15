@@ -1,33 +1,32 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
+data("Galton")
 
-# Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Galton height distributions"),
   
-  # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
+      tags$div(class="header", checked=NA,
+               tags$p("This application will provide basic information about 
+                      the distribution and summary statistics for the Galton 
+                      paired parent/child height datasets."),
+               tags$br()
+               ),
+      radioButtons("data", "Choose parent or child data for histogram:",
+                   c("Parent" = "parent",
+                     "Child" = "child")),
+      br(),
+      
        sliderInput("bins",
                    "Number of bins:",
-                   min = 1,
+                   min = 10,
                    max = 50,
-                   value = 30)
+                   value = 20)
     ),
-    
-    # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot")
+      plotOutput("hist_plot"),
+      verbatimTextOutput("summary"))
     )
-  )
-))
+)
+)
