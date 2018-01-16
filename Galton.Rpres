@@ -1,0 +1,24 @@
+
+Galton-based height prediction application
+========================================================
+author: Noelle S. Foster, Ph.D.
+date: January 15, 2018
+autosize: true
+
+Introduction
+========================================================
+
+The Galton parent/child paired height data is used in this application to illustrate an example normal distribution and make height predictions from selected predictor values.
+
+User input sidebar
+========================================================
+
+The input screen asks the user to select whether the parent or child dataset will be used for descriptive statistics and plotting, and which will be used as the independent variable for predictions.  It also allows the user to specify the number of bins for the histogram.  Finally, it asks for an height value, in tenths of an inches, from which to predict an outcome height.  
+
+Output tab: summary
+========================================================
+This tab creates a histogram of the selected dataset, using the specified number of bins and prints a basic set of summary statistics.  Please note that the parent dataset is more tightly clustered than the child dataset, leading to more blank bars on the parent histogram as the number of bins increases.
+
+Output tab: Predictions
+========================================================
+This tab takes the plots the selected independent dataset on the y axis and the outcome data on the x axis, along with the results of a linear regression.  It also takes the  height input by the user, locates the value along the regression line, and prints the predicted height for the corresponding dataset.  
